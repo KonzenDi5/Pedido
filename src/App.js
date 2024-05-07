@@ -9,7 +9,7 @@ function App() {
 
   const handleNoClick = () => {
     setNoButtonPosition({
-      top: Math.random() * 400, 
+      top: Math.random() * 300, 
       left: Math.random() * 250, 
     });
   };
