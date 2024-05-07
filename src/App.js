@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Container, Button, Pergunta, Buttons, Kitanal } from "./styles";
+import kitanal from './assets/kitanal.png'
+
 
 function App() {
+  const [showLove, setShowLove] = useState(false);
+  const [noButtonPosition, setNoButtonPosition] = useState({ top: 0, left: 0 });
+
+  const handleNoClick = () => {
+    setNoButtonPosition({
+      top: Math.random() * 400, 
+      left: Math.random() * 250, 
+    });
+  };
+
+  const handleYesClick = () => {
+    setShowLove(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      {showLove ? (
+        <Kitanal alt="kitanal" src={kitanal} />
+      ) : (
+        <>
+          <Pergunta>Cuzinho hoje?</Pergunta>
+          <Buttons>
+            <Button onClick={handleYesClick}>Sim</Button>
+            <Button
+              style={{ top: noButtonPosition.top, left: noButtonPosition.left }}
+              onClick={handleNoClick}
+            >
+              Não
+            </Button>
+          </Buttons>
+        </>
+      )}
+    </Container>
   );
 }
 
