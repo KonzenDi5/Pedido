@@ -24,7 +24,7 @@ function App() {
         <Kitanal alt="kitanal" src={kitanal} />
       ) : (
         <>
-          <Pergunta>Cuzinho no finde?</Pergunta>
+          <Pergunta>Cuzinho hj?</Pergunta>
           <Buttons>
             <Button onClick={handleYesClick}>Sim</Button>
             <Button
